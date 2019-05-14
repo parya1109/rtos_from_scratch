@@ -2,7 +2,7 @@
 
 #define QUANTA		10
 
-uint32_t count0=0, count1=0, count2=0;
+volatile uint32_t count0, count1, count2;
 
 void Task0(void){
 	while(1){
@@ -27,5 +27,4 @@ int main(void){
 	OSKernelInit();
 	ucOSKernelAddThreads(&Task0,&Task1,&Task2);
 	OSKernelLaunch(QUANTA);
-	return 0;
 }
